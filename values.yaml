@@ -1,0 +1,39 @@
+global:
+  imagePullPolicy: IfNotPresent
+
+  rbac:
+    enabled: true
+
+  scheduling: &scheduling
+    enabled: true
+
+    rules:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: role
+                operator: In
+                values:
+                - 'services'
+
+ark:
+  image:
+    name: gcr.io/heptio-images/ark
+    tag: v0.7.1
+
+  resources: {}
+
+  scheduling:
+    <<: *scheduling
+
+  namespace: heptio-ark
+
+  server:
+    namespace: heptio-ark-server
+
+  configuration:
+    bucket: ark.test.dat.internal
+    region: us-west-2
+

@@ -1,0 +1,3 @@
+ark:
+  configuration:
+    bucket: ark.prod.dat.internal

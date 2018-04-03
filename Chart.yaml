@@ -1,0 +1,15 @@
+name: ark
+version: 1.0.0
+description: A a utility for managing disaster recovery, specifically for your Kubernetes cluster resources and persistent volumes
+keywords:
+  - ark
+  - backup
+  - recovery
+home: https://github.com/heptio/ark
+sources:
+  - git@bitbucket.org:dat/helm-ark.git
+maintainers:
+  - name: DAT
+    email: devops@dat.com
+engine: gotpl
+appVersion: 0.7.1
